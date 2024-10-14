@@ -1,0 +1,257 @@
+/* ------------------- */
+/* Custom properties   */
+/* ------------------- */
+
+:root {
+  /* colors */
+  --clr-red: hsl(0, 66%, 54%);
+
+  --clr-green-200: hsl(148, 38%, 91%);
+  --clr-green-600: hsl(169, 82%, 27%);
+
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-grey-500: hsl(186, 15%, 59%);
+  --clr-grey-900: hsl(187, 24%, 22%);
+}
+
+/* ------------------- */
+/* Reset               */
+/* ------------------- */
+
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+
+/* Box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reset margins */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-weight: 400;
+}
+
+/* set up the body */
+body {
+  background-color: var(--clr-green-200);
+  color: var(--clr-grey-900);
+  min-height: 100vh;
+
+  font-family: 'Karla', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-size: 1.125rem;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: 0px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* make form elements easier to work with */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* remove animations for people who've turned them off */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ------------------- */
+/* Styling             */
+/* ------------------- */
+
+/* Typography */
+
+.heading {
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.body-m-bold {
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  letter-spacing: 0px;
+}
+
+.body-m {
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  letter-spacing: 0px;
+}
+
+.body-s {
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  letter-spacing: 0px;
+}
+
+/* General styles */
+
+label,
+legend {
+  /* body-s */
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  letter-spacing: 0px;
+
+  padding-left: 0px;
+}
+
+label span,
+legend span {
+  color: var(--clr-green-600);
+}
+
+input,
+textarea {
+  /* body-m */
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  letter-spacing: 0px;
+
+  width: 100%;
+  padding: 12px 24px;
+  margin-top: 8px;
+  border: 1px solid var(--clr-grey-500);
+  border-radius: 8px;
+}
+
+input:active,
+input:hover,
+textarea:active,
+textarea:hover,
+.radio-group:hover {
+  border: 1px solid var(--clr-green-600);
+}
+
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.contact-form {
+  background-color: var(--clr-white);
+  width: 100%;
+  margin: auto;
+  padding: 24px;
+  border-radius: 16px;
+}
+
+.contact-form__heading {
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 1;
+  letter-spacing: -1px;
+  margin-bottom: 32px;
+}
+
+.contact-form__info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contact-form__consent {
+  margin-block: 40px;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 12px;
+  padding: 12px 24px;
+  margin-top: 16px;
+  border: 1px solid var(--clr-grey-500);
+  border-radius: 12px;
+}
+
+.radio-group input,
+.contact-form__consent input {
+  width: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+.error {
+  color: var(--clr-red);
+  margin-top: 8px;
+}
+
+.submit-btn {
+  color: var(--clr-white);
+  background-color: var(--clr-green-600);
+  width: 100%;
+  padding: 16px 40px;
+  border-radius: 16px;
+  border: none;
+}
+
+@media (min-width: 768px) {
+  .contact-form {
+    max-width: 690px;
+    padding: 40px;
+    margin-block: 128px;
+  }
+
+  .med-2col {
+    display: flex;
+    gap: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .contact-form {
+    max-width: 736px;
+  }
+}

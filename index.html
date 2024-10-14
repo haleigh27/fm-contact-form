@@ -1,52 +1,112 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Contact form</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+    <title>Frontend Mentor | Contact form</title>
 
-  Contact Us
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Karla:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
 
-  First Name
-  This field is required
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <form action="" class="contact-form">
+      <h1 class="contact-form__heading">Contact Us</h1>
+      <!-- Client query information -->
+      <div class="contact-form__info">
+        <div class="med-2col">
+          <div>
+            <label for="first-name">First Name <span>*</span></label>
+            <input type="text" id="first-name" name="first-name" required />
+            <p class="error hidden">This field is required</p>
+          </div>
 
-  Last Name
-  This field is required
+          <div>
+            <label for="last-name">Last Name <span>*</span></label>
+            <input type="last-name" id="last-name" name="last-name" required />
+            <p class="error hidden">This field is required</p>
+          </div>
+        </div>
 
-  Email Address
-  Please enter a valid email address
-  This field is required
+        <div>
+          <label for="email">Email Address <span>*</span></label>
+          <input type="email" id="email" name="email" required />
+          <p class="error hidden">Please enter a valid email address</p>
+        </div>
 
-  Query Type
-  General Enquiry
-  Support Request
-  Please select a query type
+        <fieldset>
+          <legend>Query Type <span>*</span></legend>
+          <div class="med-2col">
+            <div class="radio-group">
+              <label for="general-enquiry">
+                <input
+                  type="radio"
+                  id="general-enquiry"
+                  name="query-type"
+                  value="General Enquiry"
+                  required
+                />
+                General Enquiry
+              </label>
+            </div>
+            <div class="radio-group">
+              <label for="support-request">
+                <input
+                  type="radio"
+                  id="support-request"
+                  name="query-type"
+                  value="Support Request"
+                  required
+                />
+                Support Request
+              </label>
+            </div>
+          </div>
+          <p class="error hidden">Please select a query type</p>
+        </fieldset>
 
-  Message
-  This field is required
+        <div>
+          <label for="message">Message <span>*</span></label>
+          <textarea name="message" id="message" required></textarea>
+          <p class="error hidden">This field is required</p>
+        </div>
+      </div>
 
-  I consent to being contacted by the team
-  To submit this form, please consent to being contacted
+      <!-- Consent -->
+      <div class="contact-form__consent">
+        <label for="consent">
+          <input
+            type="checkbox"
+            id="consent"
+            name="consent"
+            value="consent"
+            required
+          />
+          I consent to being contacted by the team
+        </label>
+        <p class="error hidden">
+          To submit this form, please consent to being contacted
+        </p>
+      </div>
 
-  Submit
-
-  Message Sent!
-  Thanks for completing the form. We'll be in touch soon!
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+      <!-- Submit -->
+      <button type="submit" class="submit-btn body-m-bold">Submit</button>
+    </form>
+  </body>
 </html>
