@@ -196,6 +196,7 @@ textarea:focus {
   border: 1px solid var(--clr-green-600);
   outline-color: var(--clr-green-600);
   outline: 4px;
+  background-color: var(--clr-white);
 }
 
 /* Radio Buttons       */
@@ -265,9 +266,10 @@ input[type='radio']:checked + svg path {
 }
 
 /* Checkbox             */
+
 input[type='checkbox'] {
   appearance: none;
-  margin: 0px 0px 0px 3px;
+  margin: 0px;
   font: inherit;
   width: 18px;
   height: 18px;
@@ -275,15 +277,15 @@ input[type='checkbox'] {
   border-radius: 0px;
   padding: 0px;
   position: absolute;
+  flex-shrink: 0;
 }
 
 input[type='checkbox'] + svg {
-  width: 18px;
+  width: 18px !important;
   height: 18px;
   z-index: 2;
-  margin-right: 16px;
-  margin-left: 3px;
   visibility: hidden;
+  flex-shrink: 0;
 }
 
 input[type='checkbox']:checked {
@@ -296,9 +298,14 @@ input[type='checkbox']:checked + svg path {
   stroke: white;
 }
 
+label p {
+  margin-left: 16px;
+}
+
 .checkbox-label {
   display: flex;
   align-items: center;
+  margin-right: 16px;
 }
 
 /* ------------------- */
@@ -311,6 +318,7 @@ input[type='checkbox']:checked + svg path {
   margin: auto;
   padding: 24px;
   border-radius: 16px;
+  margin: 32px 16px;
 }
 
 .contact-form__heading {
@@ -324,7 +332,7 @@ input[type='checkbox']:checked + svg path {
 }
 
 .contact-form__consent {
-  margin-block: 40px;
+  margin: 40px 3px;
 }
 
 .submit-btn {
@@ -343,7 +351,7 @@ input[type='checkbox']:checked + svg path {
 .success {
   position: absolute;
   top: 24px;
-  margin-inline: auto;
+  margin-inline: 24px;
   padding: 24px;
   background-color: var(--clr-grey-900);
   color: var(--clr-white);
@@ -355,12 +363,16 @@ input[type='checkbox']:checked + svg path {
   .contact-form {
     max-width: 690px;
     padding: 40px;
-    margin-block: 128px;
+    margin: 128px auto;
   }
 
   .med-2col {
     display: flex;
     gap: 16px;
+  }
+
+  .success {
+    margin-inline: 24px;
   }
 }
 
@@ -368,4 +380,19 @@ input[type='checkbox']:checked + svg path {
   .contact-form {
     max-width: 736px;
   }
+}
+
+/* Target autofill background color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px var(--clr-white) inset; /* Background color */
+  -webkit-text-fill-color: var(--clr-grey-900); /* Text color */
+  transition: background-color 5000s ease-in-out 0s; /* Prevent background color from resetting */
 }
