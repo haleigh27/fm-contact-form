@@ -82,6 +82,7 @@ button,
 textarea,
 select {
   font: inherit;
+  cursor: pointer;
 }
 
 /* remove animations for people who've turned them off */
@@ -97,10 +98,10 @@ select {
 }
 
 /* ------------------- */
-/* Styling             */
+/* General Styling     */
 /* ------------------- */
 
-/* Typography */
+/* Typography--------- */
 
 .heading {
   font-weight: 700;
@@ -134,8 +135,9 @@ select {
   color: var(--clr-green-200);
 }
 
-/* General styles */
+/* Form elements------ */
 
+/* label */
 label,
 legend {
   /* body-s */
@@ -145,6 +147,7 @@ legend {
   letter-spacing: 0px;
 
   padding-left: 0px;
+  cursor: pointer;
 }
 
 label span,
@@ -152,6 +155,7 @@ legend span {
   color: var(--clr-green-600);
 }
 
+/* Input and textarea */
 input,
 textarea {
   /* body-m */
@@ -167,11 +171,13 @@ textarea {
   border-radius: 8px;
 }
 
+/* Hover/ Active States */
+
 input:active,
 input:hover,
 textarea:active,
 textarea:hover,
-.radio-group:hover {
+.radio-group:hover .radio-group:active {
   border: 1px solid var(--clr-green-600);
 }
 
@@ -273,4 +279,39 @@ fieldset {
   .contact-form {
     max-width: 736px;
   }
+}
+
+/* Radio buttons */
+
+fieldset label {
+  display: flex;
+  align-items: center;
+}
+
+input[type='radio'] {
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: #0c7d69;
+  width: 24px;
+  height: 24px;
+  border: 0.15em solid var(--clr-green-200);
+  border-radius: 50%;
+  padding: 0;
+  position: absolute;
+}
+
+svg {
+  margin-right: 12px;
+}
+
+input[type='radio'] + svg {
+  width: 24px;
+  height: 24px;
+  z-index: 1;
+}
+
+input[type='radio']:checked + svg path {
+  fill: #0c7d69;
 }
