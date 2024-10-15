@@ -35,7 +35,9 @@ formEl.addEventListener('submit', function (e) {
 
 // Form validation function
 function validateForm() {
-  const isTextValid = Object.values(inputEls.text).every(validateTextInput);
+  const textValidations = Object.values(inputEls.text).map(validateTextInput);
+
+  const isTextValid = textValidations.every((isValid) => isValid);
   const isEmailValid = validateEmail(inputEls.email);
   const isRadioValid = validateRadioButtons(inputEls.queryType, 'query-type');
   const isCheckboxValid = validateCheckbox(inputEls.consent);
