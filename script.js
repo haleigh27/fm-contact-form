@@ -24,6 +24,8 @@ formEl.addEventListener('submit', function (e) {
     successEl.classList.remove('hidden');
     successEl.removeAttribute('aria-hidden');
 
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
     formEl.reset();
 
     setTimeout(() => {
@@ -61,10 +63,19 @@ function toggleError(inputEl, errorMessage) {
   }
 }
 
+function toggleErrorBorder(inputEl, isValid) {
+  if (!isValid) {
+    inputEl.classList.add('error-border');
+  } else {
+    inputEl.classList.remove('error-border');
+  }
+}
+
 // Input field validation functions
 function validateTextInput(inputEl) {
   const isValid = inputEl.value.trim() !== '';
   toggleError(inputEl, isValid ? '' : 'This field is required');
+  toggleErrorBorder(inputEl, isValid);
   return isValid;
 }
 
@@ -72,6 +83,7 @@ function validateEmail(inputEl) {
   const emailPattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
   const isValid = emailPattern.test(inputEl.value);
   toggleError(inputEl, isValid ? '' : 'Please enter a valid email address');
+  toggleErrorBorder(inputEl, isValid);
   return isValid;
 }
 

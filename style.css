@@ -120,7 +120,7 @@ select {
 .body-m,
 input,
 textarea {
-  font-weight: 700;
+  font-weight: 400;
   font-size: 1.125rem;
   line-height: 1.5;
   letter-spacing: 0px;
@@ -146,6 +146,10 @@ legend {
 .error {
   color: var(--clr-red);
   margin-top: 8px;
+}
+
+.error-border {
+  border-color: var(--clr-red);
 }
 
 .flex {
@@ -190,6 +194,8 @@ textarea:active,
 textarea:hover,
 textarea:focus {
   border: 1px solid var(--clr-green-600);
+  outline-color: var(--clr-green-600);
+  outline: 4px;
 }
 
 /* Radio Buttons       */
@@ -210,6 +216,10 @@ textarea:focus {
 }
 .radio-group:focus,
 .radio-group:active {
+  background-color: var(--clr-green-200);
+}
+
+.radio-group:has(input[type='radio']:checked) {
   background-color: var(--clr-green-200);
 }
 
