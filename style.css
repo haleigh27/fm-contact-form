@@ -130,6 +130,10 @@ select {
   letter-spacing: 0px;
 }
 
+.green200 {
+  color: var(--clr-green-200);
+}
+
 /* General styles */
 
 label,
@@ -235,6 +239,21 @@ fieldset {
   padding: 16px 40px;
   border-radius: 16px;
   border: none;
+}
+
+.success {
+  position: absolute;
+  top: 24px;
+  margin-inline: auto;
+  padding: 24px;
+  background-color: var(--clr-grey-900);
+  color: var(--clr-white);
+  border-radius: 12px;
+}
+
+.flex {
+  display: flex;
+  gap: 8px;
 }
 
 @media (min-width: 768px) {
