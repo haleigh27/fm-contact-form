@@ -98,54 +98,72 @@ select {
 }
 
 /* ------------------- */
-/* General Styling     */
+/* Typography          */
 /* ------------------- */
 
-/* Typography--------- */
-
-.heading {
+.heading,
+.contact-form__heading {
   font-weight: 700;
   font-size: 2rem;
   line-height: 1;
   letter-spacing: -1px;
 }
 
-.body-m-bold {
+.body-m-bold,
+.submit-btn {
   font-weight: 700;
   font-size: 1.125rem;
   line-height: 1.5;
   letter-spacing: 0px;
 }
 
-.body-m {
-  font-weight: 400;
+.body-m,
+input,
+textarea {
+  font-weight: 700;
   font-size: 1.125rem;
   line-height: 1.5;
   letter-spacing: 0px;
 }
 
-.body-s {
+.body-s,
+label,
+legend {
   font-weight: 400;
-  font-size: 1.125rem;
+  font-size: 1rem;
   line-height: 1.5;
   letter-spacing: 0px;
 }
+
+/* ------------------- */
+/* General classes     */
+/* ------------------- */
 
 .green200 {
   color: var(--clr-green-200);
 }
 
-/* Form elements------ */
+.error {
+  color: var(--clr-red);
+  margin-top: 8px;
+}
+
+.flex {
+  display: flex;
+  gap: 8px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* ------------------- */
+/* Form Elements       */
+/* ------------------- */
 
 /* label */
 label,
 legend {
-  /* body-s */
-  font-weight: 400;
-  font-size: 1.125rem;
-  line-height: 1.5;
-  letter-spacing: 0px;
-
   padding-left: 0px;
   cursor: pointer;
 }
@@ -155,15 +173,9 @@ legend span {
   color: var(--clr-green-600);
 }
 
-/* Input and textarea */
+/* Input and Textarea */
 input,
 textarea {
-  /* body-m */
-  font-weight: 400;
-  font-size: 1.125rem;
-  line-height: 1.5;
-  letter-spacing: 0px;
-
   width: 100%;
   padding: 12px 24px;
   margin-top: 8px;
@@ -171,47 +183,16 @@ textarea {
   border-radius: 8px;
 }
 
-/* Hover/ Active States */
-
 input:active,
 input:hover,
+input:focus,
 textarea:active,
 textarea:hover,
-.radio-group:hover .radio-group:active {
+textarea:focus {
   border: 1px solid var(--clr-green-600);
 }
 
-fieldset {
-  padding: 0;
-  margin: 0;
-  border: none;
-}
-
-.contact-form {
-  background-color: var(--clr-white);
-  width: 100%;
-  margin: auto;
-  padding: 24px;
-  border-radius: 16px;
-}
-
-.contact-form__heading {
-  font-weight: 700;
-  font-size: 2rem;
-  line-height: 1;
-  letter-spacing: -1px;
-  margin-bottom: 32px;
-}
-
-.contact-form__info {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.contact-form__consent {
-  margin-block: 40px;
-}
+/* Radio Buttons       */
 
 .radio-group {
   display: flex;
@@ -224,64 +205,24 @@ fieldset {
   border-radius: 12px;
 }
 
+.radio-group:hover {
+  border: 1px solid var(--clr-green-600);
+}
+.radio-group:focus,
+.radio-group:active {
+  background-color: var(--clr-green-200);
+}
+
 .radio-group input,
 .contact-form__consent input {
   width: auto;
 }
 
-.hidden {
-  display: none;
-}
-
-.error {
-  color: var(--clr-red);
-  margin-top: 8px;
-}
-
-.submit-btn {
-  color: var(--clr-white);
-  background-color: var(--clr-green-600);
-  width: 100%;
-  padding: 16px 40px;
-  border-radius: 16px;
+fieldset {
+  padding: 0;
+  margin: 0;
   border: none;
 }
-
-.success {
-  position: absolute;
-  top: 24px;
-  margin-inline: auto;
-  padding: 24px;
-  background-color: var(--clr-grey-900);
-  color: var(--clr-white);
-  border-radius: 12px;
-}
-
-.flex {
-  display: flex;
-  gap: 8px;
-}
-
-@media (min-width: 768px) {
-  .contact-form {
-    max-width: 690px;
-    padding: 40px;
-    margin-block: 128px;
-  }
-
-  .med-2col {
-    display: flex;
-    gap: 16px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .contact-form {
-    max-width: 736px;
-  }
-}
-
-/* Radio buttons */
 
 fieldset label {
   display: flex;
@@ -302,16 +243,119 @@ input[type='radio'] {
   position: absolute;
 }
 
-svg {
-  margin-right: 12px;
-}
-
 input[type='radio'] + svg {
   width: 24px;
   height: 24px;
   z-index: 1;
+  margin-right: 12px;
 }
 
 input[type='radio']:checked + svg path {
   fill: #0c7d69;
+}
+
+/* Checkbox             */
+input[type='checkbox'] {
+  appearance: none;
+  margin: 0px 0px 0px 3px;
+  font: inherit;
+  width: 18px;
+  height: 18px;
+  border: 0.15em solid var(--clr-grey-500);
+  border-radius: 0px;
+  padding: 0px;
+  position: absolute;
+}
+
+input[type='checkbox'] + svg {
+  width: 18px;
+  height: 18px;
+  z-index: 2;
+  margin-right: 16px;
+  margin-left: 3px;
+  visibility: hidden;
+}
+
+input[type='checkbox']:checked {
+  border: 0.15em solid #0c7d69;
+}
+
+input[type='checkbox']:checked + svg path {
+  fill: #0c7d69;
+  visibility: visible;
+  stroke: white;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+}
+
+/* ------------------- */
+/* Layout              */
+/* ------------------- */
+
+.contact-form {
+  background-color: var(--clr-white);
+  width: 100%;
+  margin: auto;
+  padding: 24px;
+  border-radius: 16px;
+}
+
+.contact-form__heading {
+  margin-bottom: 32px;
+}
+
+.contact-form__info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contact-form__consent {
+  margin-block: 40px;
+}
+
+.submit-btn {
+  color: var(--clr-white);
+  background-color: var(--clr-green-600);
+  width: 100%;
+  padding: 16px 40px;
+  border-radius: 16px;
+  border: none;
+}
+.submit-btn:hover {
+  background-color: hsl(169, 82%, 17%);
+}
+
+/* Success Message */
+.success {
+  position: absolute;
+  top: 24px;
+  margin-inline: auto;
+  padding: 24px;
+  background-color: var(--clr-grey-900);
+  color: var(--clr-white);
+  border-radius: 12px;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .contact-form {
+    max-width: 690px;
+    padding: 40px;
+    margin-block: 128px;
+  }
+
+  .med-2col {
+    display: flex;
+    gap: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .contact-form {
+    max-width: 736px;
+  }
 }
